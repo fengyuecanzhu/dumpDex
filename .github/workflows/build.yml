@@ -1,0 +1,23 @@
+name: build
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # 编译打包
+      - name: Build With Gradle
+        run: |
+          echo "开始编译打包"
+          chmod +x gradlew
+          ./gradlew assembleRelease --parallel
+      # 上传Artifact
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: app
+          path: ./app/build/outputs/apk/release/*.apk
