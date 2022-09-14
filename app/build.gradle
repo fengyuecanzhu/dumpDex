@@ -9,6 +9,7 @@ android {
     defaultConfig {
         applicationId "com.wrbug.dumpdex"
         minSdkVersion 15
+        //noinspection ExpiredTargetSdkVersion
         targetSdkVersion 23
         versionCode 101
         versionName "1.1"
